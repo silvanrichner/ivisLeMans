@@ -1,0 +1,74 @@
+body {
+    margin: 20px;
+    font-family: 'Lato';
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+#anime-demo {
+    position: relative;
+}
+
+button {
+    background: orange;
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Lato';
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+button:hover {
+    background: blue;
+}
+
+.box, .square {
+    pointer-events: none;
+    background-color: black;
+    margin: 4px;
+    display: inline-block;
+    top: -10px;
+    left: -10px;
+    opacity: 0.6;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.color-codes {
+    position: absolute;
+    top: 0;
+}
+
+.box {
+    position: relative;
+    top: 8px;
+}
+
+.square {
+    position: absolute;
+}
+
+.square.blue, .box.blue {
+    background: blue;
+}
+
+.square.red, .box.red {
+    background: red;
+}
+
+.square.orange, .box.orange {
+    background: orange;
+}
+
+.square.green, .box.green {
+    background: green;
+}
+
+.controls {
+    margin-top: 20px;
+    text-align: center;
+}
