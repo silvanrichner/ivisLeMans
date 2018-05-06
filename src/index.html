@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Motion Along an SVG Path in Anime.js</title>
 
-    <div id="anime-demo">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lato:300'>
+        <link rel="stylesheet" href="css/style.css">
 
-        <svg width="600" height="450" ><path d="M380,10q-152,103,-2,257q-149,137,41,154q204,9,61,-149q192,-105,36,-259q-82,275,-136,-2" stroke="black" stroke-width= "1px" fill="none"/></svg>
-        <div class="square blue"></div>
-        <div class="square red"></div>
-        <div class="square orange"></div>
-        <div class="square green"></div>
-    </div>
+    </head>
+    <body>
+        <div id="anime-demo">
 
-    <div class="color-codes">
-        <p><span class="box blue"></span> : Linear</p>
-        <p><span class="box red"></span> : easeInCubic</p>
-        <p><span class="box orange"></span> : easeOutCubic</p>
-        <p><span class="box green"></span> : easeInOutCubic</p>
-    </div>
+            <svg width="600" height="450" ><path d="M380,10q-152,103,-2,257q-149,137,41,154q204,9,61,-149q192,-105,36,-259q-82,275,-136,-2" stroke="black" stroke-width= "1px" fill="none"/></svg>
+            <div class="square blue"></div>
+            <div class="square red"></div>
+            <div class="square orange"></div>
+            <div class="square green"></div>
+        </div>
 
-</body>
+        <div class="color-codes">
+            <p><span class="box blue"></span> : Linear</p>
+            <p><span class="box red"></span> : easeInCubic</p>
+            <p><span class="box orange"></span> : easeOutCubic</p>
+            <p><span class="box green"></span> : easeInOutCubic</p>
+        </div>
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js'></script>
+        <script  src="js/index.js"></script>
+
+    </body>
 </html>
