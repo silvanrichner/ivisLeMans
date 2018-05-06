@@ -2,8 +2,34 @@ import csv
 import json
 
 
+def getMillis(time):
+    print(time)
+    millis = 0
+
+    if time == '':
+        return 0
+
+    if '.' in time:
+        splitTime = str(time).split('.')
+        millis = int(splitTime[1])
+        splitTime = str(splitTime[0]).split(':')
+    else:
+        splitTime = str(time).split(':')
+
+    if len(splitTime) == 3:
+        millis += 1000 * int(splitTime[2])
+        millis += 60 * 1000 * int(splitTime[1])
+        millis += 60 * 60 * 1000 * int(splitTime[0])
+    elif len(splitTime) == 2:
+        millis += 1000 * int(splitTime[1])
+        millis += 60 * 1000 * int(splitTime[0])
+    else:
+        millis += 1000 * int(splitTime[0])
+
+    return millis
+
 def getLap(row):
-    return {'pit': row[20], 's1': row[6], 's2': row[8], 's3': row[10], 'totalTime': row[3]}
+    return {'pit': getMillis(row[20]), 's1': getMillis(row[6]), 's2': getMillis(row[8]), 's3': getMillis(row[10]), 'totalTime': getMillis(row[3])}
 
 def parseFile(year):
     print(year)
