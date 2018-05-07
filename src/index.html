@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Visualization of the LeMans racing sector times</title>
+        <title>Visualization of the Le Mans circuit sector times</title>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Lato:300'>
@@ -12,14 +12,14 @@
     <body>
         <div id="circuit">
             <img id="backgroundImage" src="img\CircuitComplete.jpg"/>
-            <svg id="sector1" width="600" height="800" >
+            <svg id="sector1">
                 <path id="path_sector1" d="
                 M122.573,274.632c0,0,1.113-31.411,5.208-57.889c1.97-12.73,4.738-20.838,7.111-30.485c7.31-29.711,17.736-30.11,17.736-30.11
 	s15.123-2.735,21.924-7.107c6.801-4.371-2.576-3.987,5.28-10.378c7.855-6.391,26.706-14.242,26.706-14.242l28.001-8.396
 	c0,0,6.832-2.645,11.168-5.633s3.596-1.307,5.564-6.935c0.891-2.541,0.641-10.437,1.465-13.305c0.934-3.243,0.85-2.272,0.85-2.272
 	c5.211-7.875,25.02-14.875,34.369-15.815"/>
             </svg>
-            <svg id="sector2" width="600" height="800" >
+            <svg id="sector2">
                 <path id="path_sector2" d="
                 M287.955,72.064c7.124-0.718,7.01,8.62,10.881,13.514c3.696,9.816,7.045,18.17,10.545,29.695
 	c7.005,23.063,14.613,47.624,14.613,47.624l5.143,28.364l21.85,138.115c0,0,0.684,2.994,0.339,5.031s-0.503,1.21-1.717,3.117
@@ -28,7 +28,7 @@
 	c0.078,8.165-7.91,11.338-7.396,18.43c0.514,7.076,0,0,0.926,9.269l9.446,69.104l5.183,64.659l0.075,21.684
 	c0,0-0.355,3.051-1.182,5.013"/>
             </svg>
-            <svg id="sector3" width="600" height="800" >
+            <svg id="sector3">
                 <path id="path_sector3" d="
                 M415.859,731.881c-0.787,1.87-0.229,2.818-5.753,2.369c-11.318-0.923-37.426-10.154-37.426-10.154s-45.379-19.225-87.224-47.685
     c-34.939-23.763-68.479-55.386-78.597-65.175c-2-1.935-2.217-1.453-3.084-3.017c-0.867-1.564-0.457-0.913-0.843-4.152l-1.552-15.939
@@ -41,16 +41,14 @@
             </svg>
         </div>
 
-        <div class="square blue"></div>
-        <div class="square red"></div>
-        <div class="square orange"></div>
-        <div class="square green"></div>
+        <div id="legend">
+            <div class="square blue"></div>
+            <div class="square red"></div>
 
-        <div class="color-codes">
-            <p><span class="box blue"></span> : Linear</p>
-            <p><span class="box red"></span> : easeInCubic</p>
-            <p><span class="box orange"></span> : easeOutCubic</p>
-            <p><span class="box green"></span> : easeInOutCubic</p>
+            <div class="color-codes">
+                <p><span class="box blue"></span> : Linear </p>
+                <p><span class="box red"></span> : easeInCubic</p>
+            </div>
         </div>
 
         <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js'></script>
