@@ -1,4 +1,6 @@
 var path = anime.path('path');
+// var pathSector2 = sector2.path('path2');
+// var pathSector3 = sector3.path('path3');
 
 var easings = ['linear', 'easeInCubic', 'easeOutCubic', 'easeInOutCubic'];
 
