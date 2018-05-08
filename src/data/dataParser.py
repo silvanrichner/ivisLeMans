@@ -1,9 +1,9 @@
 import csv
 import json
+import re
 
 
 def getMillis(time):
-    print(time)
     millis = 0
 
     if time == '':
@@ -57,11 +57,19 @@ def parseFile(year):
                 data[team]['laptimes'].append(getLap(row))
                 lapCounter += 1
 
+                #check if team has finished the race or was DQ or retired
+                pattern = re.compile("24:\d{2}:\d{2}.?\d*")
+                if pattern.match(row[13]):
+                    data[team]['hasFinished'] = True
+                else:
+                    data[team]['hasFinished'] = False
+
             else:
                 if not isFirst:
                     # finish last team record
                     data[team]['totalLaps'] = lapCounter
                     lapCounter = 0
+
                 else:
                     isFirst = False
 
@@ -85,6 +93,3 @@ for year in range (2015, 2018):
 
 with open('data.json', 'w') as datafile:
     json.dump(completeData, datafile)
-
-
-
