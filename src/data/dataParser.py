@@ -42,44 +42,45 @@ def parseFile(year):
         next(reader, None)
 
         isFirst = True
-        team = ''
+        teamId = -1
         driver = ''
         lapCounter = 0
 
         for row in reader:
-            if (team == row[23]):
-                if not data[team]['drivers'].__contains__(row[19]):
+            if (teamId == row[0]):
+                if not data[teamId]['drivers'].__contains__(row[19]):
                     # new driver record
                     driver = row[19]
-                    data[team]['drivers'].append(driver)
+                    data[teamId]['drivers'].append(driver)
 
                 # write lap
-                data[team]['laptimes'].append(getLap(row))
+                data[teamId]['laptimes'].append(getLap(row))
                 lapCounter += 1
 
                 #check if team has finished the race or was DQ or retired
                 pattern = re.compile("24:\d{2}:\d{2}.?\d*")
                 if pattern.match(row[13]):
-                    data[team]['hasFinished'] = True
+                    data[teamId]['hasFinished'] = True
                 else:
-                    data[team]['hasFinished'] = False
+                    data[teamId]['hasFinished'] = False
 
             else:
                 if not isFirst:
                     # finish last team record
-                    data[team]['totalLaps'] = lapCounter
+                    data[teamId]['totalLaps'] = lapCounter
                     lapCounter = 0
 
                 else:
                     isFirst = False
 
                 # new team record
-                team = row[23]
+                teamId = row[0]
 
-                data[team] = {'manufacturer': row[24], 'finalClassification': '', 'class': row[21], 'totalLaps': '',
+                data[teamId] = {'name': row[23], 'manufacturer': row[24], 'finalClassification': '', 'class': row[21], 'totalLaps': '',
                                 'drivers': [], 'laptimes': []}
-                data[team]['laptimes'].append(getLap(row))
+                data[teamId]['laptimes'].append(getLap(row))
                 lapCounter += 1
+
 
         return data
 
