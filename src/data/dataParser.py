@@ -32,6 +32,7 @@ def getLap(row):
     return {'pit': getMillis(row[20]), 's1': getMillis(row[6]), 's2': getMillis(row[8]), 's3': getMillis(row[10]), 'totalTime': getMillis(row[3])}
 
 def parseFile(year):
+    totalLaps = {}
     print(year)
     filename = str(year) + '.csv'
     with open(filename, 'r') as csvfile:
@@ -68,7 +69,9 @@ def parseFile(year):
                 if not isFirst:
                     # finish last team record
                     data[teamId]['totalLaps'] = lapCounter
+                    totalLaps[teamId] = lapCounter
                     lapCounter = 0
+
 
                 else:
                     isFirst = False
@@ -81,6 +84,11 @@ def parseFile(year):
                 data[teamId]['laptimes'].append(getLap(row))
                 lapCounter += 1
 
+        #update the finalClassification
+        i = 1
+        for team in sorted(totalLaps, key=totalLaps.get, reverse=True):
+            data[team]['finalClassification'] = i
+            i += 1
 
         return data
 
