@@ -42,20 +42,9 @@ svg {
     background-color: aqua;
 }
 
-button {
-    background: orange;
-    color: white;
-    margin: 5px;
-    padding: 10px;
-    border-radius: 4px;
-    font-family: 'Lato';
-    cursor: pointer;
-    border: none;
-    outline: none;
-}
-
-button:hover {
-    background: blue;
+.color-codes {
+    position: relative;
+    top: 0;
 }
 
 .box, .square {
@@ -69,11 +58,6 @@ button:hover {
     border-radius: 5px;
     width: 20px;
     height: 20px;
-}
-
-.color-codes {
-    position: relative;
-    top: 0;
 }
 
 .box {
@@ -92,16 +76,26 @@ button:hover {
 .square.red, .box.red {
     background: red;
 }
-
-.square.orange, .box.orange {
-    background: orange;
-}
-
-.square.green, .box.green {
-    background: green;
-}
+/*
 
 .controls {
     margin-top: 20px;
     text-align: center;
 }
+
+button {
+    background: orange;
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Lato';
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+button:hover {
+    background: blue;
+}
+*/
