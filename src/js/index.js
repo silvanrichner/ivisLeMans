@@ -2,6 +2,10 @@ var pathSector1 = anime.path('path#path_sector1');
 var pathSector2 = anime.path('path#path_sector2');
 var pathSector3 = anime.path('path#path_sector3');
 
+var sectorTime1 = 1000;
+var sectorTime2 = 2000;
+var sectorTime3 = 3000;
+
 var easings = ['linear', 'easeInCubic', 'easeOutCubic', 'easeInOutCubic'];
 
 var motionPath1 = anime({
@@ -12,7 +16,7 @@ var motionPath1 = anime({
     easing: function (el, i) {
         return easings[i];
     },
-    duration: 5000,
+    duration: sectorTime1,
     loop: true
 });
 
@@ -24,7 +28,7 @@ var motionPath2 = anime({
     easing: function (el, i) {
         return easings[i];
     },
-    duration: 5000,
+    duration: sectorTime2,
     loop: true
 });
 
@@ -36,10 +40,6 @@ var motionPath3 = anime({
     easing: function (el, i) {
         return easings[i];
     },
-    duration: 5000,
+    duration: sectorTime3,
     loop: true
 });
-
-function runAnimation(motionPath1, motionPath2, motionPath3 ) {
-    return motionPath1, motionPath2, motionPath3;
-}

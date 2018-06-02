@@ -18,14 +18,14 @@ body {
     float:left;
     width:30%;
     background-color: #c3ffcd;
-    min-height: 800px;
+    min-height: 1000px;
 }
 
 #main{
     float:left;
     width:55%;
     background-color: lightgray;
-    min-height: 800px;
+    min-height: 1000px;
 }
 #circuit{
     position: absolute;
@@ -74,7 +74,7 @@ body {
     float:left;
     width:15%;
     background-color: #ffcabc;
-    min-height: 800px;
+    min-height: 1000px;
 }
 #legendSector1{
     color: springgreen;
