@@ -1,6 +1,6 @@
 body {
-    margin: 0px;
-    font-family: 'Lato';
+    margin: 0;
+    font-family: 'Lato', serif;
     font-weight: 300;
     font-size: 1.2em;
     background: none;
@@ -31,19 +31,59 @@ body {
     position: absolute;
     fill: none;
     width: 600px;
-    length: 800px;
+    height: 800px;
 }
-#svg {
+#backgroundImage{
+    position: absolute;
+    fill: none;
+    width: 600px;
+    height: 800px;
+    min-width: 150px;
+    min-height: 200px;
+    max-width: 600px;
+    max-height: 800px;
+}
+#circuitComplete {
     position: absolute;
     background: none;
-    stroke-width: 1px;
+    fill: none;
+    width: 600px;
+    height: 800px;
+    viewBox: 0 0 60 80;
+    z-index: 50;
 }
-
+#path_sector1 {
+    position: inherit;
+    stroke: springgreen;
+    stroke-width: 1px;
+    z-index: 51;
+}
+#path_sector2 {
+    position: inherit;
+    stroke: yellow;
+    stroke-width: 1px;
+    z-index: 52;
+}
+#path_sector3 {
+    position: inherit;
+    stroke: red;
+    stroke-width: 1px;
+    z-index: 53;
+}
 #sidebar-right{
     float:left;
     width:15%;
     background-color: #ffcabc;
     min-height: 800px;
+}
+#legendSector1{
+    color: springgreen;
+}
+#legendSector2{
+    color: yellow;
+}
+#legendSector3{
+    color: red;
 }
 
 #footer{
@@ -71,15 +111,6 @@ body {
     /*stroke-width: 1px;*/
 /*}*/
 
-#path_sector1 {
-    stroke: greenyellow;
-}
-#path_sector2 {
-    stroke: blueviolet;
-}
-#path_sector3 {
-     stroke: red;
-}
 
 #legend {
     float: right;
