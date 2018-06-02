@@ -6,26 +6,70 @@ body {
     background: none;
 }
 
+#header{
+    float: left;
+    background-color: lightblue;
+    width:100%;
+    min-height: 100px;
+    text-align: center;
+}
+
+#sidebar-left{
+    float:left;
+    width:30%;
+    background-color: #c3ffcd;
+    min-height: 800px;
+}
+
+#main{
+    float:left;
+    width:55%;
+    background-color: lightgray;
+    min-height: 800px;
+}
 #circuit{
     position: absolute;
     fill: none;
-}
-#backgroundImage {
-    position: absolute;
-    fill: none;
     width: 600px;
     length: 800px;
 }
-
-svg {
+#svg {
     position: absolute;
-    width: 600px;
-    length: 800px;
     background: none;
-    fill: none;
     stroke-width: 1px;
-
 }
+
+#sidebar-right{
+    float:left;
+    width:15%;
+    background-color: #ffcabc;
+    min-height: 800px;
+}
+
+#footer{
+    float: left;
+    clear:both;
+    width: 100%;
+    min-height: 100px;
+    text-align: center;
+    background-color: lightblue;
+}
+
+/*#backgroundImage {*/
+    /*position: absolute;*/
+    /*fill: none;*/
+    /*width: 600px;*/
+    /*length: 800px;*/
+/*}*/
+
+/*svg {*/
+    /*position: absolute;*/
+    /*width: 600px;*/
+    /*length: 800px;*/
+    /*background: none;*/
+    /*fill: none;*/
+    /*stroke-width: 1px;*/
+/*}*/
 
 #path_sector1 {
     stroke: greenyellow;
