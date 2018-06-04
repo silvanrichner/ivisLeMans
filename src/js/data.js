@@ -1,6 +1,7 @@
 $.getJSON("https://raw.githubusercontent.com/silvanrichner/ivisLeMans/master/src/data/data.json", callbackFuncWithData);
 
 var data;
+var selected = [];
 
 function callbackFuncWithData(json)
 {
@@ -19,6 +20,8 @@ function buildForm(){
     //create year section
     var y = document.createElement("div");
     var t = document.createTextNode(i);
+    y.classList.add("yearTitle");
+
     y.appendChild(t);
     f.appendChild(y);
 
@@ -28,7 +31,7 @@ function buildForm(){
       var c = document.createElement("input");
       c.type = "checkbox";
       c.id = i + "_" + j;
-      c.name = data[i][j][name];
+      c.name = this.name;
       d.appendChild(c);
 
       var n = document.createTextNode(this.name);
@@ -47,6 +50,13 @@ function buildForm(){
   // add the form inside the body
   $("body").append(f);
 
+  //formatting
+  $(".yearTitle").each(function() {
+    $(this).css("margin-bottom", "12px");
+    $(this).css("margin-top", "24px");
+    $(this).css("font-weight", "bold");
+  });
+
   //add Listener to form
   var form = $("#form")[0];
   if (form.attachEvent) {
@@ -57,5 +67,12 @@ function buildForm(){
 }
 
 function processForm(){
-  alert("Submitted!")
+  $('#form input:checked').each(function() {
+      var year_id = $(this).attr('id');
+      var year = year_id.split("_")[0];
+      var id = year_id.split("_")[1];
+
+      var team = data[year][id];
+      selected.push(team);
+  });
 }
