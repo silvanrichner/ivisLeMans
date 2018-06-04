@@ -9,7 +9,6 @@ var pathSector1 = anime.path('path#path_sector1');
 var pathSector2 = anime.path('path#path_sector2');
 var pathSector3 = anime.path('path#path_sector3');
 
-
 function callbackFuncWithData(json)
 {
   data = json;
@@ -67,6 +66,8 @@ function buildForm(){
 }
 
 function processForm(){
+  selected = [];
+
   $('#form input:checked').each(function() {
       var year_id = $(this).attr('id');
       var year = year_id.split("_")[0];
@@ -78,176 +79,59 @@ function processForm(){
 
   animate(selected);
 }
-/*
-var sectorTime1 = 1000;
-var sectorTime2 = 2000;
-var sectorTime3 = 3000;
 
-var motionPath1 = anime({
-    targets: '.square',
-    translateX: pathSector1('x'),
-    translateY: pathSector1('y'),
-    rotate: pathSector1('angle'),
-    easing: function (el, i) {
-        return 'linear';
-    },
-    duration: sectorTime1,
-    loop: true
-});
-
-var motionPath2 = anime({
-    targets: '.square',
-    translateX: pathSector2('x'),
-    translateY: pathSector2('y'),
-    rotate: pathSector2('angle'),
-    easing: function (el, i) {
-        return 'linear';
-    },
-    duration: sectorTime2,
-    loop: true
-});
-
-var motionPath3 = anime({
-    targets: '.square',
-    translateX: pathSector3('x'),
-    translateY: pathSector3('y'),
-    rotate: pathSector3('angle'),
-    easing: function (el, i) {
-        return 'linear';
-    },
-    duration: sectorTime3,
-    loop: true
-});
-*/
 function animate(teams){
+  if(teams != []){
+    //TODO generate a square for each team and start its animation
+    //TODO generate description (with lap counter field) for each team
 
+    //testing purposes
     animateLap(".square", 2015, 1, 0);
-/*
-    var motionPath1 = anime({
-        targets: '.square',
-        translateX: pathSector1('x'),
-        translateY: pathSector1('y'),
-        rotate: pathSector1('angle'),
-        easing: function (el, i) {
-            return 'linear';
-        },
-        duration: 2500,
-        loop: true
-    });
+  }
+}
+
+function animateLap(targetId, year, id, lap){
+  if(data[year][id]["laptimes"][lap]){
+    var d1 = data[year][id]["laptimes"][lap]["s1"] / 100;
+    var d2 = data[year][id]["laptimes"][lap]["s2"] / 100;
+    var d3 = data[year][id]["laptimes"][lap]["s3"] / 100;
 
     var timeline = anime.timeline();
 
     timeline.add({
-      targets: '.square',
+      targets: targetId,
       translateX: pathSector1('x'),
       translateY: pathSector1('y'),
       rotate: pathSector1('angle'),
       easing: function (el, i) {
           return 'linear';
       },
-      duration: 2500,
+      duration: function(el, i, l) { return d1; },
       loop: false
     }).add({
-      targets: '.square',
+      targets: targetId,
       translateX: pathSector2('x'),
       translateY: pathSector2('y'),
       rotate: pathSector2('angle'),
       easing: function (el, i) {
           return 'linear';
       },
-      duration: 2500,
+      duration: function(el, i, l) { return d2; },
       loop: false
     }).add({
-      targets: '.square',
+      targets: targetId,
       translateX: pathSector3('x'),
       translateY: pathSector3('y'),
       rotate: pathSector3('angle'),
       easing: function (el, i) {
           return 'linear';
       },
-      duration: 2500,
-      loop: false
+      duration: function(el, i, l) { return d3; },
+      loop: false,
+      complete: function(anim) {
+        //TODO update a lap counter
+        animateLap(targetId, year, id, lap + 1);
+      }
       });
-
-    jQuery.each(laps, function(i, val) {
-        //sleep for pitstop
-        //sleep(this.pitstop);
-
-        timeline.add({
-          targets: '.square',
-          translateX: pathSector1('x'),
-          translateY: pathSector1('y'),
-          rotate: pathSector1('angle'),
-          easing: function (el, i) {
-              return 'linear';
-          },
-          duration: this.sectorTime1,
-          loop: false
-        }).add({
-          targets: '.square',
-          translateX: pathSector2('x'),
-          translateY: pathSector2('y'),
-          rotate: pathSector2('angle'),
-          easing: function (el, i) {
-              return 'linear';
-          },
-          duration: this.sectorTime2,
-          loop: false
-        }).add({
-          targets: '.square',
-          translateX: pathSector3('x'),
-          translateY: pathSector3('y'),
-          rotate: pathSector3('angle'),
-          easing: function (el, i) {
-              return 'linear';
-          },
-          duration: this.sectorTime3,
-          loop: false
-        });
-    });
-*/
-}
-
-function animateLap(targetId, year, id, lap){
-
-  var d1 = data[year][id]["laptimes"][lap]["s1"] / 100;
-  var d2 = data[year][id]["laptimes"][lap]["s2"] / 100;
-  var d3 = data[year][id]["laptimes"][lap]["s3"] / 100;
-
-  var timeline = anime.timeline();
-
-  timeline.add({
-    targets: targetId,
-    translateX: pathSector1('x'),
-    translateY: pathSector1('y'),
-    rotate: pathSector1('angle'),
-    easing: function (el, i) {
-        return 'linear';
-    },
-    duration: function(el, i, l) { return d1; },
-    loop: false
-  }).add({
-    targets: targetId,
-    translateX: pathSector2('x'),
-    translateY: pathSector2('y'),
-    rotate: pathSector2('angle'),
-    easing: function (el, i) {
-        return 'linear';
-    },
-    duration: function(el, i, l) { return d2; },
-    loop: false
-  }).add({
-    targets: targetId,
-    translateX: pathSector3('x'),
-    translateY: pathSector3('y'),
-    rotate: pathSector3('angle'),
-    easing: function (el, i) {
-        return 'linear';
-    },
-    duration: function(el, i, l) { return d3; },
-    loop: false,
-    complete: function(anim) {
-      animateLap(targetId, year, id, lap + 1);
     }
-    });
 }
