@@ -95,6 +95,7 @@ function animateLap(targetId, year, id, lap){
     var d1 = data[year][id]["laptimes"][lap]["s1"] / 100;
     var d2 = data[year][id]["laptimes"][lap]["s2"] / 100;
     var d3 = data[year][id]["laptimes"][lap]["s3"] / 100;
+  //  var d4 = pitstop
 
     var timeline = anime.timeline();
 

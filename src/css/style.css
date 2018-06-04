@@ -1,50 +1,73 @@
-body {
-    margin: 0;
+body, html {
+    height: 100%;
+    margin: 0 auto;
     font-family: 'Lato', serif;
     font-weight: 300;
     font-size: 1.2em;
-    background: none;
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    background-image: url("../img/leMans.jpg");
+    background-color: #ffffff;
+    zoom: 80%;
+}
+
+.container{
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.90);
+    background-blend-mode: color;
 }
 
 #header{
     float: left;
-    background-color: lightblue;
     width:100%;
-    min-height: 100px;
+    min-height: auto;
     text-align: center;
+}
+
+.main{
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.90);
+    background-blend-mode: color;
+    min-height: 1000px;
+    height: available;
+    text-align: center;
+    align-content: center;
+    padding: 20px 2% 20px 2%;
 }
 
 #sidebar-left{
     float:left;
-    width:30%;
-    background-color: #c3ffcd;
-    min-height: 1000px;
+    width:25%;
+    background-color: #dafcff;
 }
 
-#main{
+#middle-bar{
     float:left;
-    width:55%;
-    background-color: lightgray;
-    min-height: 1000px;
+    width:38%;
+    background-color: #ffffff;
+
+}
+#circuitFrame{
+    position: center;
+    width: 610px;
+    height: 810px;
 }
 #circuit{
     position: absolute;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
     fill: none;
-    width: 600px;
-    height: 800px;
 }
 #backgroundImage{
-    position: absolute;
+    position: inherit;
     fill: none;
     width: 600px;
     height: 800px;
-    min-width: 150px;
-    min-height: 200px;
-    max-width: 600px;
-    max-height: 800px;
 }
 #circuitComplete {
-    position: absolute;
+    position: inherit;
     background: none;
     fill: none;
     width: 600px;
@@ -55,26 +78,25 @@ body {
 #path_sector1 {
     position: inherit;
     stroke: springgreen;
-    stroke-width: 1px;
+    stroke-width: 2px;
     z-index: 51;
 }
 #path_sector2 {
     position: inherit;
     stroke: yellow;
-    stroke-width: 1px;
+    stroke-width: 2px;
     z-index: 52;
 }
 #path_sector3 {
     position: inherit;
     stroke: red;
-    stroke-width: 1px;
+    stroke-width: 2px;
     z-index: 53;
 }
 #sidebar-right{
     float:left;
-    width:15%;
-    background-color: #ffcabc;
-    min-height: 1000px;
+    width:25%;
+    background-color: #dafcff;
 }
 #legendSector1{
     color: springgreen;
@@ -90,9 +112,8 @@ body {
     float: left;
     clear:both;
     width: 100%;
-    min-height: 100px;
+    min-height: auto;
     text-align: center;
-    background-color: lightblue;
 }
 
 /*#backgroundImage {*/
@@ -150,6 +171,7 @@ body {
 
 .square.red, .box.red {
     background: red;
+    transform-origin: center;
 }
 /*
 
