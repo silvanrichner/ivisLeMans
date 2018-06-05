@@ -90,6 +90,7 @@ function animate(teams){
       box.id = 'team' + year_id;
       box.classList.add("square");
       box.style.background = colors[i % 14];
+      box.style.zIndex = 100;
       document.getElementById("circuit").appendChild(box);
 
       var p = document.createElement("p");
