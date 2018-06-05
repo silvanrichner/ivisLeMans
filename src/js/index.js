@@ -5,6 +5,7 @@ $.getJSON("https://raw.githubusercontent.com/silvanrichner/ivisLeMans/master/src
 var data;
 var selected = [];
 
+var pathPit = anime.path('path#path_pit');
 var pathSector1 = anime.path('path#path_sector1');
 var pathSector2 = anime.path('path#path_sector2');
 var pathSector3 = anime.path('path#path_sector3');
@@ -95,11 +96,21 @@ function animateLap(targetId, year, id, lap){
     var d1 = data[year][id]["laptimes"][lap]["s1"] / 100;
     var d2 = data[year][id]["laptimes"][lap]["s2"] / 100;
     var d3 = data[year][id]["laptimes"][lap]["s3"] / 100;
-  //  var d4 = pitstop
+    var p = data[year][id]["laptimes"][lap]["pit"] / 100;
 
     var timeline = anime.timeline();
 
     timeline.add({
+      targets: targetId,
+      translateX: pathPit('x'),
+      translateY: pathPit('y'),
+      rotate: pathPit('angle'),
+      easing: function (el, i) {
+          return 'linear';
+      },
+      duration: function(el, i, l) { return p; },
+      loop: false
+    }).add({
       targets: targetId,
       translateX: pathSector1('x'),
       translateY: pathSector1('y'),
