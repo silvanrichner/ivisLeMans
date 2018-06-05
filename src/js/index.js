@@ -92,14 +92,24 @@ function animate(teams){
       box.style.background = colors[i % 14];
       document.getElementById("circuit").appendChild(box);
 
-      animateLap("#" + box.id, year, id, 0);
+      var p = document.createElement("p");
+      var b = document.createElement("span");
+      b.classList.add("box");
+      b.style.background = colors[i % 14];
+      p.appendChild(b);
+      p.appendChild(document.createTextNode(data[year][id]['name'] + ' (' + year + '): '));
 
-      //TODO generate description (with lap counter field) for each team
+      var lapCounter = document.createTextNode("0");
+      p.appendChild(lapCounter);
+
+      document.getElementById('teams').appendChild(p);
+
+      animateLap("#" + box.id, year, id, 0, lapCounter);
     }
   }
 }
 
-function animateLap(targetId, year, id, lap){
+function animateLap(targetId, year, id, lap, lapCounterElement){
   if(data[year][id]["laptimes"][lap]){
     var d1 = data[year][id]["laptimes"][lap]["s1"] / 100;
     var d2 = data[year][id]["laptimes"][lap]["s2"] / 100;
@@ -149,8 +159,9 @@ function animateLap(targetId, year, id, lap){
       duration: function(el, i, l) { return d3; },
       loop: false,
       complete: function(anim) {
-        //TODO update a lap counter
-        animateLap(targetId, year, id, lap + 1);
+        lapCounterElement.nodeValue = parseInt(lapCounterElement.nodeValue) + 1;
+
+        animateLap(targetId, year, id, lap + 1, lapCounterElement);
       }
       });
     }
