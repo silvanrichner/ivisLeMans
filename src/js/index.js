@@ -3,12 +3,13 @@ $.getJSON("https://raw.githubusercontent.com/silvanrichner/ivisLeMans/master/src
 
 //initialize variables
 var data;
-var selected = [];
 
 var pathPit = anime.path('path#path_pit');
 var pathSector1 = anime.path('path#path_sector1');
 var pathSector2 = anime.path('path#path_sector2');
 var pathSector3 = anime.path('path#path_sector3');
+
+var colors = ['red', 'blue', 'yellow', 'fuchsia', 'gray', 'black', 'maroon', 'olive', 'lime', 'green', 'aqua', 'teal', 'navy', 'purple'];
 
 function callbackFuncWithData(json)
 {
@@ -67,27 +68,34 @@ function buildForm(){
 }
 
 function processForm(){
-  selected = [];
+  var selected = [];
 
   $('#form input:checked').each(function() {
-      var year_id = $(this).attr('id');
-      var year = year_id.split("_")[0];
-      var id = year_id.split("_")[1];
-
-      var team = data[year][id];
-      selected.push(team);
+      selected.push($(this).attr('id'));
   });
 
   animate(selected);
 }
 
 function animate(teams){
-  if(teams != []){
-    //TODO generate a square for each team and start its animation
-    //TODO generate description (with lap counter field) for each team
 
-    //testing purposes
-    animateLap(".square", 2015, 1, 0);
+  if(teams != []){
+    for(var i=0; i<teams.length; i++){
+      var year_id = teams[i];
+
+      var year = year_id.split("_")[0];
+      var id = year_id.split("_")[1];
+
+      var box = document.createElement("div");
+      box.id = 'team' + year_id;
+      box.classList.add("square");
+      box.style.background = colors[i % 14];
+      document.getElementById("circuit").appendChild(box);
+
+      animateLap("#" + box.id, year, id, 0);
+
+      //TODO generate description (with lap counter field) for each team
+    }
   }
 }
 
