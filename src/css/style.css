@@ -45,7 +45,7 @@ body, html {
     float:left;
     width:25%;
     min-width: 250px;
-    min-height: 1500px;
+    min-height: 1100px;
     background-color: #dae7ea;
 }
 #animationButtons{
@@ -59,7 +59,7 @@ body, html {
 
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
-    background-color: #eee;
+    background-color: #eeeeee;
     color: #444;
     cursor: pointer;
     padding: 18px;
@@ -97,7 +97,7 @@ body, html {
     float:left;
     width:38%;
     min-width: 600px;
-    min-height: 1500px;
+    min-height: 1100px;
     background-color: #ffffff;
 
 }
@@ -109,7 +109,6 @@ body, html {
 }
 #slider{
     position: center;
-    background-color: red;
 }
 #circuit{
     position: absolute;
@@ -130,43 +129,55 @@ body, html {
     fill: none;
     width: 600px;
     height: 800px;
-    viewBox: 0 0 60 80;
     z-index: 50;
 }
 #path_sector1 {
     position: inherit;
     stroke: #28e33c;
-    stroke-width: 2px;
+    stroke-width: 3px;
     z-index: 51;
 }
 #path_sector2 {
     position: inherit;
-    stroke: #ffe141;
-    stroke-width: 2px;
+    stroke: #4a91ec;
+    stroke-width: 3px;
     z-index: 52;
 }
 #path_sector3 {
     position: inherit;
     stroke: #ec3b62;
-    stroke-width: 2px;
+    stroke-width: 3px;
     z-index: 53;
 }
-#sidebar-right{
-    float:left;
-    width:25%;
+#sidebar-right {
+    float: left;
+    width: 25%;
     min-width: 250px;
-    min-height: 1500px;
+    min-height: 1100px;
     background-color: #dae7ea;
 }
+#sectorNames{
+    float: top;
+    display: block;
+    width: auto;
+}
 #legendSector1{
+    text-align: left;
     color: #28e33c;
     font-size: larger;
+    font-weight: bold;
 }
 #legendSector2{
-    color: #ffe141;
+    text-align: center;
+    color: #4a91ec;
+    font-size: larger;
+    font-weight: bold;
 }
 #legendSector3{
+    text-align: right;
     color: #ec3b62;
+    font-size: larger;
+    font-weight: bold;
 }
 
 #footer{
@@ -178,13 +189,16 @@ body, html {
 }
 
 #legend {
-    float: left;
-    width: auto;
-    background-color: #ffffff;
+    display: block;
+    padding: 1px;
+    text-align: center;
+    background-color: #eeeeee;
 }
 
 #teams {
-    position: relative;
+    position: center;
+    padding-left: 30px;
+    text-align: left;
     padding: auto;
 }
 
@@ -192,13 +206,13 @@ body, html {
     pointer-events: none;
     background-color: black;
     margin: 4px;
-    display: inline-block;
-    top: -10px;
-    left: -10px;
+    display: inline-flex;
+    top: -12px;
+    left: -15px;
     opacity: 1;
     border-radius: 5px;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 15px;
 }
 
 .box {
@@ -208,13 +222,4 @@ body, html {
 
 .square {
     position: absolute;
-}
-
-.square.blue, .box.blue {
-    background: blue;
-}
-
-.square.red, .box.red {
-    background: red;
-    transform-origin: center;
 }
