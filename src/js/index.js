@@ -33,11 +33,24 @@ function buildForm(){
 
   jQuery.each(data, function(i, val) {
     //create year section
+    var acc = document.createElement("button");
+    acc.appendChild(document.createTextNode(i));
+    acc.classList.add("accordion");
     var y = document.createElement("div");
-    var t = document.createTextNode(i);
-    y.classList.add("yearTitle");
+    y.classList.add("panel");
 
-    y.appendChild(t);
+    acc.addEventListener("click", function() {
+        this.classList.toggle("active");
+
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+
+    f.appendChild(acc);
     f.appendChild(y);
 
     jQuery.each(this, function(j, val){
@@ -52,7 +65,7 @@ function buildForm(){
       var n = document.createTextNode(this.name);
       d.appendChild(n);
 
-      f.appendChild(d);
+      y.appendChild(d);
     });
   });
 
