@@ -23,9 +23,9 @@
                     and how man and machine have reached faster and faster lap results over the many years. <br>
                 </h4>
                 <h4>
-                    In this current version you can select and compare the teams of the last 3 years <br>
-                    and visualize their lap sector times in parallel. <br>
-                    Relive the whole race in a few minutes!
+                    In this current version you can select and compare the teams of the years 2015 - 2017,<br>
+                    visualize their lap sector times in parallel and keep track of the total laps. <br>
+                    Relive the whole race in just a few minutes!
                 </h4>
             </div>
         </section>
@@ -38,15 +38,26 @@
                 <p>
                     Select the teams and years you are interested in and start or stop the animation.
                 </p>
+                <div id="animationButtons">
+                    <br>
+                </div>
+                <div id= "accordion">
+                    <br>
+                </div>
             </div>
             <div id="middle-bar" class="main">
                 <h2>
                     24 Hour Race Visualization
                 </h2>
                 <p>
-                    Relive the whole race of your selected teams in just a few minutes!
+                    Relive the whole race of your selected teams in just a few minutes. <br> <br>
+                    Change the speed of the animation with the slider from real life to 500 times faster. The default speed is real life x 100.
                 </p>
                 <div id="circuitFrame">
+                    <div class="slider">
+                        Animation speed:
+                        <input type="range" min="1" max="500" value="100" class="slider" id="animationSpeed">
+                    </div>
                     <div id="circuit">
                         <img id="backgroundImage" src="img/CircuitComplete.jpg" alt="This should be the Circuit Image Background"/>
                         <svg id="circuitComplete">
@@ -80,29 +91,26 @@
                         </svg>
                     </div>
                 </div>
-                <div class="slider">
-                  Animationsgeschwindigkeit: 
-                  <input type="range" min="1" max="500" value="100" class="slider" id="animationSpeed">
-                </div>
             </div>
             <div id="sidebar-right" class="main">
                 <h2>
                     Legend and Lap Counter
                 </h2>
                 <p>
-                    Track the laps and pit stops of your selected teams.
+                    Follow and track the laps of your selected teams.
                 </p>
                 <div id="trackLegend">
                     <h3>Circuit de la Sarthe</h3>
-                    <p>The track is split into 3 separate sectors <br>
-                        (color coded on the map):</p>
+                    <p>The race track is split into 3 separate sectors (color coded on the map). <br>
+                    The lap times are split into these 3 sectors and the pit stops (next to the finishing line).
+                    </p>
                     <p id="legendSector1">Sector 1</p>
                     <p id="legendSector2">Sector 2</p>
                     <p id="legendSector3">Sector 3</p>
                 </div>
                 <div id="legend">
                     <div id="teams">
-
+                        blabla
                     </div>
                 </div>
             </div>

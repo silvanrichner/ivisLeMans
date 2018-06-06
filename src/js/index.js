@@ -28,14 +28,14 @@ function buildForm(){
 
   //create a button
   var b = document.createElement("button");
-  b.appendChild(document.createTextNode("Animation starten"));
+  b.appendChild(document.createTextNode("Start animation"));
   b.onclick = function(){
     processForm();
   }
   f.appendChild(b);
 
   var stop = document.createElement("button");
-  stop.appendChild(document.createTextNode("Animation stoppen"));
+  stop.appendChild(document.createTextNode("Stop animation"));
   stop.onclick = function(){
     isStopped = true;
   }
@@ -80,7 +80,11 @@ function buildForm(){
   });
 
   // add the form inside the body
-  $("#sidebar-left").append(f);
+    $("#animationButtons").append(b);
+    $("#animationButtons").append(stop);
+
+    // add the form inside the body
+    $("#accordion").append(f);
 
   //formatting
   $(".yearTitle").each(function() {

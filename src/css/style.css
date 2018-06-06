@@ -3,13 +3,13 @@ body, html {
     margin: 0 auto;
     font-family: 'Lato', serif;
     font-weight: 300;
-    font-size: 1.2em;
+    font-size: 1.1em;
     background-size: cover;
     background-repeat: repeat;
     background-position: center;
     background-image: url("../img/leMans.jpg");
     background-color: #ffffff;
-    zoom: 80%;
+    zoom: 90%;
 }
 
 .container{
@@ -35,7 +35,6 @@ body, html {
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.90);
     background-blend-mode: color;
-    min-height: 1000px;
     height: available;
     text-align: center;
     align-content: center;
@@ -46,22 +45,71 @@ body, html {
     float:left;
     width:25%;
     min-width: 250px;
-    min-height: 1100px;
+    min-height: 1500px;
     background-color: #dae7ea;
+}
+#animationButtons{
+    padding: auto;
+    margin-inside: 10;
+}
+#accordion{
+    padding: auto;
+    margin-inside: 10;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    text-align: left;
+}
+.accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 
 #middle-bar{
     float:left;
     width:38%;
     min-width: 600px;
-    min-height: 1100px;
+    min-height: 1500px;
     background-color: #ffffff;
 
 }
 #circuitFrame{
-    position: relative;
+    align-self: center;
+    position: absolute;
     width: 600px;
     height: 800px;
+}
+#slider{
+    position: center;
+    background-color: red;
 }
 #circuit{
     position: absolute;
@@ -107,7 +155,7 @@ body, html {
     float:left;
     width:25%;
     min-width: 250px;
-    min-height: 1100px;
+    min-height: 1500px;
     background-color: #dae7ea;
 }
 #legendSector1{
@@ -169,66 +217,4 @@ body, html {
 .square.red, .box.red {
     background: red;
     transform-origin: center;
-}
-/*
-
-.controls {
-    margin-top: 20px;
-    text-align: center;
-}
-
-button {
-    background: orange;
-    color: white;
-    margin: 5px;
-    padding: 10px;
-    border-radius: 4px;
-    font-family: 'Lato';
-    cursor: pointer;
-    border: none;
-    outline: none;
-}
-
-button:hover {
-    background: blue;
-}
-*/
-
-/* Style the buttons that are used to open and close the accordion panel */
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .accordion:hover {
-    background-color: #ccc;
-}
-
-/* Style the accordion panel. Note: hidden by default */
-.panel {
-    padding: 0 18px;
-    background-color: white;
-    display: none;
-    overflow: hidden;
-    text-align: left;
-}
-
-.accordion:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
-    color: #777;
-    float: right;
-    margin-left: 5px;
-}
-
-.active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
