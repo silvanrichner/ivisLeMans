@@ -4,6 +4,8 @@ $.getJSON("https://raw.githubusercontent.com/silvanrichner/ivisLeMans/master/src
 //initialize variables
 var data;
 
+var animationSpeed = $('#animationSpeed');
+
 var pathPit = anime.path('path#path_pit');
 var pathSector1 = anime.path('path#path_sector1');
 var pathSector2 = anime.path('path#path_sector2');
@@ -148,10 +150,13 @@ function animate(teams){
 
 function animateLap(targetId, year, id, lap, lapCounterElement){
   if(data[year][id]["laptimes"][lap] && !isStopped){
-    var d1 = data[year][id]["laptimes"][lap]["s1"] / 100;
-    var d2 = data[year][id]["laptimes"][lap]["s2"] / 100;
-    var d3 = data[year][id]["laptimes"][lap]["s3"] / 100;
-    var p = data[year][id]["laptimes"][lap]["pit"] / 100;
+
+    var speedFactor = animationSpeed.val();
+    
+    var d1 = data[year][id]["laptimes"][lap]["s1"] / speedFactor;
+    var d2 = data[year][id]["laptimes"][lap]["s2"] / speedFactor;
+    var d3 = data[year][id]["laptimes"][lap]["s3"] / speedFactor;
+    var p = data[year][id]["laptimes"][lap]["pit"] / speedFactor;
 
     var timeline = anime.timeline();
 
