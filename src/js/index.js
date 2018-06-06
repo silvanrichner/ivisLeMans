@@ -9,6 +9,8 @@ var pathSector1 = anime.path('path#path_sector1');
 var pathSector2 = anime.path('path#path_sector2');
 var pathSector3 = anime.path('path#path_sector3');
 
+var isStopped = true;
+
 var colors = ['red', 'blue', 'yellow', 'fuchsia', 'gray', 'black', 'maroon', 'olive', 'lime', 'green', 'aqua', 'teal', 'navy', 'purple'];
 
 function callbackFuncWithData(json)
@@ -24,12 +26,18 @@ function buildForm(){
 
   //create a button
   var b = document.createElement("button");
-  var t = document.createTextNode("Animation starten");
-  b.appendChild(t)
+  b.appendChild(document.createTextNode("Animation starten"));
   b.onclick = function(){
     processForm();
   }
   f.appendChild(b);
+
+  var stop = document.createElement("button");
+  stop.appendChild(document.createTextNode("Animation stoppen"));
+  stop.onclick = function(){
+    isStopped = true;
+  }
+  f.appendChild(stop);
 
   jQuery.each(data, function(i, val) {
     //create year section
@@ -91,14 +99,28 @@ function processForm(){
 }
 
 function animate(teams){
-
   if(teams != []){
+
+    isStopped = false;
+
+    //clear previously generated elements
+    var legendNode = document.getElementById("teams");
+    while (legendNode.firstChild) {
+        legendNode.removeChild(legendNode.firstChild);
+    }
+
+    $(".square").each(function(){
+      this.remove();
+    });
+
+    //iterate over selected teams
     for(var i=0; i<teams.length; i++){
       var year_id = teams[i];
 
       var year = year_id.split("_")[0];
       var id = year_id.split("_")[1];
 
+      //create squares for animation
       var box = document.createElement("div");
       box.id = 'team' + year_id;
       box.classList.add("square");
@@ -106,6 +128,7 @@ function animate(teams){
       box.style.zIndex = 100;
       document.getElementById("circuit").appendChild(box);
 
+      //create legend
       var p = document.createElement("p");
       var b = document.createElement("span");
       b.classList.add("box");
@@ -124,7 +147,7 @@ function animate(teams){
 }
 
 function animateLap(targetId, year, id, lap, lapCounterElement){
-  if(data[year][id]["laptimes"][lap]){
+  if(data[year][id]["laptimes"][lap] && !isStopped){
     var d1 = data[year][id]["laptimes"][lap]["s1"] / 100;
     var d2 = data[year][id]["laptimes"][lap]["s2"] / 100;
     var d3 = data[year][id]["laptimes"][lap]["s3"] / 100;
