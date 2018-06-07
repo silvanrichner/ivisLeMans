@@ -156,12 +156,16 @@ function animateLap(targetId, year, id, lap, lapCounterElement){
   if(data[year][id]["laptimes"][lap] && !isStopped){
 
     var speedFactor = animationSpeed.val();
-    
+    /*
     var d1 = data[year][id]["laptimes"][lap]["s1"] / speedFactor;
     var d2 = data[year][id]["laptimes"][lap]["s2"] / speedFactor;
     var d3 = data[year][id]["laptimes"][lap]["s3"] / speedFactor;
     var p = data[year][id]["laptimes"][lap]["pit"] / speedFactor;
-
+    */
+    var d1 = data[year][id]["laptimes"][lap]["s1"] / speedFactor;
+    var d2 = data[year][id]["laptimes"][lap]["s2"] / speedFactor;
+    var d3 = data[year][id]["laptimes"][lap]["s3"] / speedFactor;
+    var p = data[year][id]["laptimes"][lap]["pit"] / speedFactor;
     var timeline = anime.timeline();
 
     timeline.add({
